@@ -17,7 +17,6 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QOpenGLWidget>
 #include <QtWidgets/QRadioButton>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -33,7 +32,6 @@ public:
     QCheckBox *chbox_normal;
     QOpenGLWidget *openGLWidget;
     QGroupBox *groupBox;
-    QSlider *horizontalSlider;
     QGroupBox *groupBox_2;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
@@ -47,7 +45,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(735, 600);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         chbox_wire = new QCheckBox(centralwidget);
@@ -64,14 +62,10 @@ public:
         chbox_normal->setGeometry(QRect(590, 120, 70, 17));
         openGLWidget = new QOpenGLWidget(centralwidget);
         openGLWidget->setObjectName(QString::fromUtf8("openGLWidget"));
-        openGLWidget->setGeometry(QRect(30, 20, 451, 431));
+        openGLWidget->setGeometry(QRect(10, 10, 521, 511));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setGeometry(QRect(550, 30, 161, 121));
-        horizontalSlider = new QSlider(centralwidget);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(570, 360, 101, 22));
-        horizontalSlider->setOrientation(Qt::Horizontal);
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setGeometry(QRect(550, 180, 161, 141));
@@ -98,10 +92,9 @@ public:
         chbox_fill->raise();
         chbox_normal->raise();
         openGLWidget->raise();
-        horizontalSlider->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 735, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

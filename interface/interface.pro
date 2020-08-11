@@ -1,5 +1,5 @@
-QT       += core gui
-
+QT       += core gui opengl
+LIBS += -lopengl32
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -17,10 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    screenGL.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    screenGL.h
 
 FORMS += \
     mainwindow.ui

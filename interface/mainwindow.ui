@@ -89,19 +89,6 @@
      <string>RENDER</string>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>360</y>
-      <width>101</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-   </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
@@ -187,7 +174,6 @@
    <zorder>chbox_fill</zorder>
    <zorder>chbox_normal</zorder>
    <zorder>openGLWidget</zorder>
-   <zorder>horizontalSlider</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
