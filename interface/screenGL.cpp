@@ -13,6 +13,7 @@ screenGL::~screenGL()
 void screenGL::initializeGL()
 {
     sp = new QOpenGLShaderProgram();
+    sp-
 
 }
 
