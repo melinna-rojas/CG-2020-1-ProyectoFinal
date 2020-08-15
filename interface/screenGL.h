@@ -8,7 +8,7 @@
 
 class screenGL : public QOpenGLWidget{
 
-   public:
+  public:
     screenGL();
     ~screenGL();
 
@@ -21,6 +21,7 @@ private:
    QOpenGLVertexArrayObject VAO;
    QOpenGLBuffer VBO;
    QOpenGLShaderProgram *sp;
+
 };
 
 
