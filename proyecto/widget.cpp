@@ -12,83 +12,46 @@ Widget::~Widget()
 
 void Widget::initializeGL()
 {
+    initializeOpenGLFunctions();
+
+    glClearColor(0, 0, 0, 1);
+
     initShaders();
 
-    float vertices[] = {
-        0.0f, 0.08f,0.0f,
-        0.05f,-0.05f,0.0f,
-        -0.05f,-0.05f,0.0f
-    };
+    // Enable depth buffer
+    glEnable(GL_DEPTH_TEST);
 
-    VAO.create();
-    VAO.bind();
+    // Enable back face culling
+    glEnable(GL_CULL_FACE);
 
-    VBO.create();
-    VBO.setUsagePattern(QOpenGLBuffer::StaticDraw);
-    VBO.bind();
-    VBO.allocate(vertices, sizeof(vertices));
+    geometries = new GeometryEngine;
 
-    VAO.release();
-    VBO.release();
-
-}
-
-void Widget::resizeGL(int w, int h)
-{
-    // Calculate aspect ratio
-        qreal aspect = qreal(w) / qreal(h ? h : 1);
-
-        // Set near plane to 3.0, far plane to 7.0, field of view 45 degrees
-        const qreal zNear = 3.0, zFar = 7.0, fov = 45.0;
-
-        // Reset projection
-        QMatrix4x4 projection;
-        projection.setToIdentity();
-
-        // Set perspective projection
-        projection.perspective(fov, aspect, zNear, zFar);
-}
-
-void Widget::paintGL()
-{
-    sp->bind();
-    VAO.bind();
-    VBO.bind();
-
-    sp->enableAttributeArray("position");
-    sp->setAttributeArray("position", GL_FLOAT,0,3);
-
-    glClearColor(0.0f,0.0f,0.0f,0.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    glDrawArrays(GL_TRIANGLES,0,3);
 }
 
 void Widget::initShaders()
 {
-    sp = new QOpenGLShaderProgram();
-// Compile vertex shader
-    //idk why it doesnt read unu
-    if (!sp->addShaderFromSourceCode(QOpenGLShader::Vertex,
-                                     "#version 450\n"
-                                     "in vec3 position;\n"
-                                     "out vec4 fragColor;\n"
-                                     "void main() {\n"
-                                     "    fragColor = vec4(0.3, 0.2, 0.75, 1.0);\n"
-                                     "    gl_Position = vec4(position, 1.0);\n"
-                                     "}"))
-            //addShaderFromSourceFile(QOpenGLShader::Vertex, "\vertexShader.glsl"))
+    // Compile vertex shader
+    /*if (!sp->addShaderFromSourceCode(QOpenGLShader::Vertex,
+                                      "#version 450\n"
+                                      "in vec3 position;\n"
+                                      "out vec4 fragColor;\n"
+                                      "void main() {\n"
+                                      "    fragColor = vec4(0.3, 0.2, 0.75, 1.0);\n"
+                                      "    gl_Position = vec4(position, 1.0);\n"
+                                      "}"))*/
+   if (!sp->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/vshader.glsl"))
         close();
 
     // Compile fragment shader
-    if (!sp->addShaderFromSourceCode(QOpenGLShader::Fragment,
+    /*if (!sp->addShaderFromSourceCode(QOpenGLShader::Fragment,
                                      "#version 450\n"
                                      "in vec4 fragColor;\n"
                                      "out vec4 finalColor;\n"
                                      "void main(){\n"
                                      "    finalColor = fragColor;\n"
-                                     "}"))
-            //addShaderFromSourceFile(QOpenGLShader::Fragment, "\fragmentShader.glsl"))
+                                     "}"))*/
+
+    if (!sp->addShaderFromSourceFile(QOpenGLShader::Fragment, ":/fshader.glsl"))
         close();
 
     // Link shader pipeline
@@ -98,4 +61,43 @@ void Widget::initShaders()
     // Bind shader pipeline for use
     if (!sp->bind())
         close();
+}
+
+void Widget::resizeGL(int w, int h)
+{
+    // Calculate aspect ratio
+    qreal aspect = qreal(w) / qreal(h ? h : 1);
+
+    // Set near plane to 3.0, far plane to 7.0, field of view 45 degrees
+    const qreal zNear = 3.0, zFar = 7.0, fov = 45.0;
+
+    // Reset projection
+    projection.setToIdentity();
+
+    // Set perspective projection
+    projection.perspective(fov, aspect, zNear, zFar);
+}
+//! [5]
+
+void Widget::paintGL()
+{
+    // Clear color and depth buffer
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+
+//! [6]
+    // Calculate model view transformation
+    QMatrix4x4 matrix;
+    matrix.translate(0.0, 0.0, -5.0);
+
+
+    // Set modelview-projection matrix
+    sp->setUniformValue("mvp_matrix", projection * matrix);
+
+    // Use texture unit 0 which contains cube.png
+    //sp->setUniformValue("texture", 0);
+
+    // Draw cube geometry
+    geometries->drawCubeGeometry(sp);
 }

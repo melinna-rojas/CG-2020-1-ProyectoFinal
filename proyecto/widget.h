@@ -1,13 +1,19 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include "geometryengine.h"
+
 #include <QOpenGLWidget>
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 #include <QOpenGLShaderProgram>
-#include "Cone.h"
 
-class Widget :public QOpenGLWidget{
+
+class GeometryEngine;
+
+
+class Widget :protected QOpenGLFunctions, public QOpenGLWidget{
+
 public :
     Widget();
     ~Widget();
@@ -19,11 +25,9 @@ protected:
     void initShaders();
 
 private:
-    QOpenGLVertexArrayObject VAO;
-    QOpenGLBuffer VBO{
-        QOpenGLBuffer::VertexBuffer
-    };
     QOpenGLShaderProgram *sp;
+    GeometryEngine *geometries = nullptr;
+    QMatrix4x4 projection;
 
 };
 

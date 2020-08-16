@@ -19,25 +19,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Cone.cpp \
-    Cube.cpp \
+    geometryengine.cpp \
     main.cpp \
     mainwindow.cpp \
     widget.cpp
 
 HEADERS += \
-    Cone.h \
-    Cube.h \
+    geometryengine.h \
     mainwindow.h \
     widget.h
 
 FORMS += \
     mainwindow.ui
 
-DISTFILES += \
-    fragmentShader.glsl \
-    vertexShader.glsl
-
+    RESOURCES += \
+        shaders.qrc
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
