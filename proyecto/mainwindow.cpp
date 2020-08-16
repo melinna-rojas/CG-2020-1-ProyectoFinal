@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     Widget *widget = new Widget();
     ui->openGL_Window->addWidget(widget);
+
 }
 
 MainWindow::~MainWindow()
@@ -16,3 +17,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_rbtn_cube_clicked()
+{
+
+}

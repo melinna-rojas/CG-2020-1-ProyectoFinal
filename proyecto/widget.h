@@ -5,6 +5,7 @@
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 #include <QOpenGLShaderProgram>
+#include "Cone.h"
 
 class Widget :public QOpenGLWidget{
 public :

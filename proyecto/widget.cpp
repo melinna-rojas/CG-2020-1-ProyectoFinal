@@ -15,30 +15,29 @@ void Widget::initializeGL()
     sp = new QOpenGLShaderProgram();
     sp->addShaderFromSourceCode(QOpenGLShader::Vertex,
                                 "#version 450\n"
-                                "in vec3 position;\n"
-                                "out vec4 fragColor;\n"
-                                "void main(){\n"
-                                "   fragColor = vec4(0.0,0.55,0.75,1.0);\n"
-                                "   gl_Position = vec4(position,1.0);\n"
-                                ")");
+                                                               "in vec3 position;\n"
+                                                               "out vec4 fragColor;\n"
+                                                               "void main() {\n"
+                                                               "    fragColor = vec4(0.3, 0.2, 0.75, 1.0);\n"
+                                                               "    gl_Position = vec4(position, 1.0);\n"
+                                                               "}");
    //Deberiamos ver como linkearlo a los archivos creados
     // sp->addShaderFromSourceFile(QOpenGLShader::Fragment,:fragmentShader.fsh)
     sp->addShaderFromSourceCode(QOpenGLShader::Fragment,
-                                "#version 450 \n"
-                                "in vec4 fragColor;\n"
-                                "out vec4 finalColor;\n"
-                                "void main(){\n"
-                                "   finalColor = fragColor;\n"
-                                "}"
-                                );
+                                "#version 450\n"
+                                                                "in vec4 fragColor;\n"
+                                                                "out vec4 finalColor;\n"
+                                                                "void main(){\n"
+                                                                "    finalColor = fragColor;\n"
+                                                                "}");
 
     sp->link();
 
     //Entendería que este arreglo debería cambiar según el botón?
     float vertices[] = {
-        0.0f, 0.5f,0.0f,
-        0.5f,-0.5f,0.0f,
-        -0.5f,-0.5f,0.0f
+        0.0f, 0.08f,0.0f,
+        0.05f,-0.05f,0.0f,
+        -0.05f,-0.05f,0.0f
     };
 
     VAO.create();
