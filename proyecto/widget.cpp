@@ -31,35 +31,19 @@ void Widget::initializeGL()
 void Widget::initShaders()
 {
     // Compile vertex shader
-    /*if (!sp->addShaderFromSourceCode(QOpenGLShader::Vertex,
-                                      "#version 450\n"
-                                      "in vec3 position;\n"
-                                      "out vec4 fragColor;\n"
-                                      "void main() {\n"
-                                      "    fragColor = vec4(0.3, 0.2, 0.75, 1.0);\n"
-                                      "    gl_Position = vec4(position, 1.0);\n"
-                                      "}"))*/
-   if (!sp->addShaderFromSourceFile(QOpenGLShader::Vertex, ":/vshader.glsl"))
+   if (!sp.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/vshader.glsl"))
         close();
 
     // Compile fragment shader
-    /*if (!sp->addShaderFromSourceCode(QOpenGLShader::Fragment,
-                                     "#version 450\n"
-                                     "in vec4 fragColor;\n"
-                                     "out vec4 finalColor;\n"
-                                     "void main(){\n"
-                                     "    finalColor = fragColor;\n"
-                                     "}"))*/
-
-    if (!sp->addShaderFromSourceFile(QOpenGLShader::Fragment, ":/fshader.glsl"))
+     if (!sp.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/fshader.glsl"))
         close();
 
     // Link shader pipeline
-    if (!sp->link())
+    if (!sp.link())
         close();
 
     // Bind shader pipeline for use
-    if (!sp->bind())
+    if (!sp.bind())
         close();
 }
 
@@ -77,7 +61,7 @@ void Widget::resizeGL(int w, int h)
     // Set perspective projection
     projection.perspective(fov, aspect, zNear, zFar);
 }
-//! [5]
+
 
 void Widget::paintGL()
 {
@@ -85,19 +69,17 @@ void Widget::paintGL()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-
-//! [6]
     // Calculate model view transformation
     QMatrix4x4 matrix;
     matrix.translate(0.0, 0.0, -5.0);
 
 
     // Set modelview-projection matrix
-    sp->setUniformValue("mvp_matrix", projection * matrix);
+    sp.setUniformValue("mvp_matrix", projection * matrix);
 
     // Use texture unit 0 which contains cube.png
     //sp->setUniformValue("texture", 0);
 
     // Draw cube geometry
-    geometries->drawCubeGeometry(sp);
+    geometries->drawCubeGeometry(&sp);
 }

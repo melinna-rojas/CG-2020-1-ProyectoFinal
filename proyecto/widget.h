@@ -25,7 +25,7 @@ protected:
     void initShaders();
 
 private:
-    QOpenGLShaderProgram *sp;
+    QOpenGLShaderProgram sp;
     GeometryEngine *geometries = nullptr;
     QMatrix4x4 projection;
 
