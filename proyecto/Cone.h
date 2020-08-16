@@ -12,6 +12,7 @@ public :
 
     vector<float> m_vertices;
     vector<float> m_colors;
+
 };
 
 #endif // CONE_H

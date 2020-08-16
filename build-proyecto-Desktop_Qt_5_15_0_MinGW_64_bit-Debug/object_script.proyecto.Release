@@ -1,0 +1,11 @@
+release/SOIL2.o
+release/etc1_utils.o
+release/image_DXT.o
+release/image_helper.o
+release/glm.o
+release/Cone.o
+release/Cube.o
+release/main.o
+release/mainwindow.o
+release/widget.o
+release/moc_mainwindow.o

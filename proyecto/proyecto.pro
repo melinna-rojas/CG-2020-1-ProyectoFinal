@@ -1,5 +1,7 @@
 QT       += core gui opengl
 LIBS += -lopengl32
+#LIBS += -lglew32
+#LIBS += -lglfw3
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,11 +34,13 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
+DISTFILES += \
+    fragmentShader.glsl \
+    vertexShader.glsl
+
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-DISTFILES += \
-    fragmentShader.fsh \
-    vertexShader.vsh

@@ -32,7 +32,7 @@ public:
     QCheckBox *checkBox_3;
     QCheckBox *checkBox_4;
     QLabel *label_2;
-    QRadioButton *radioButton;
+    QRadioButton *rbtn_cube;
     QRadioButton *radioButton_2;
     QRadioButton *radioButton_3;
     QRadioButton *radioButton_4;
@@ -88,13 +88,13 @@ public:
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(660, 150, 61, 16));
         label_2->setFont(font);
-        radioButton = new QRadioButton(centralwidget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
-        radioButton->setGeometry(QRect(670, 170, 82, 17));
+        rbtn_cube = new QRadioButton(centralwidget);
+        rbtn_cube->setObjectName(QString::fromUtf8("rbtn_cube"));
+        rbtn_cube->setGeometry(QRect(670, 170, 82, 17));
         QFont font2;
         font2.setFamily(QString::fromUtf8("Montserrat"));
         font2.setPointSize(9);
-        radioButton->setFont(font2);
+        rbtn_cube->setFont(font2);
         radioButton_2 = new QRadioButton(centralwidget);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
         radioButton_2->setGeometry(QRect(670, 190, 82, 17));
@@ -131,7 +131,7 @@ public:
         checkBox_3->setText(QCoreApplication::translate("MainWindow", "Fill", nullptr));
         checkBox_4->setText(QCoreApplication::translate("MainWindow", "Show Normal", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Shapes", nullptr));
-        radioButton->setText(QCoreApplication::translate("MainWindow", "Cube", nullptr));
+        rbtn_cube->setText(QCoreApplication::translate("MainWindow", "Cube", nullptr));
         radioButton_2->setText(QCoreApplication::translate("MainWindow", "Cylinder", nullptr));
         radioButton_3->setText(QCoreApplication::translate("MainWindow", "Cone", nullptr));
         radioButton_4->setText(QCoreApplication::translate("MainWindow", "Sphere", nullptr));

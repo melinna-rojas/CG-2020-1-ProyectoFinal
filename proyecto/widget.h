@@ -16,6 +16,7 @@ protected:
     void initializeGL() override;
     void resizeGL(int w, int h) override;
     void paintGL() override;
+    void initShaders();
 
 private:
     QOpenGLVertexArrayObject VAO;
@@ -23,6 +24,7 @@ private:
         QOpenGLBuffer::VertexBuffer
     };
     QOpenGLShaderProgram *sp;
+
 };
 
 

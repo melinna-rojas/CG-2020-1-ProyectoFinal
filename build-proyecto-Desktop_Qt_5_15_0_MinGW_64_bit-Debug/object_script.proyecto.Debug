@@ -1,0 +1,11 @@
+debug/SOIL2.o
+debug/etc1_utils.o
+debug/image_DXT.o
+debug/image_helper.o
+debug/glm.o
+debug/Cone.o
+debug/Cube.o
+debug/main.o
+debug/mainwindow.o
+debug/widget.o
+debug/moc_mainwindow.o

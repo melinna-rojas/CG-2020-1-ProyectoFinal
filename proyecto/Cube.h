@@ -2,17 +2,24 @@
 #define CUBE_H
 
 #include <vector>
+#include <QOpenGLWidget>
+#include <QOpenGLVertexArrayObject>
+#include <QOpenGLBuffer>
+#include <QOpenGLShaderProgram>
+
 using namespace std;
+
 class Cube{
-public :
+    public :
     Cube();
 
-    void initVertices();
-    void initColors();
+    void Draw();
 
-    vector<float> m_vertices;
-    vector<float> m_colors;
+    private:
+        GLuint indexCube[36];
+        GLuint cubeVBO, cubeVAO, cubeEBO;
 
+        void setUpCube();
 };
 
 #endif // CUBE_H
