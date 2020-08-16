@@ -1,4 +1,5 @@
-QT       += core gui
+QT       += core gui opengl
+LIBS += -lopengl32
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,10 +18,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    widget.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    widget.h
 
 FORMS += \
     mainwindow.ui
@@ -29,3 +32,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    fragmentShader.fsh \
+    vertexShader.vsh
