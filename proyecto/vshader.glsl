@@ -1,11 +1,12 @@
 #version 410
-uniform mat4 mvp_matrix;
 
-attribute vec4 a_position;
+layout (location = 0) in vec3 position;
 
-void main()
-{
-    // Calculate vertex position in screen space
-    gl_Position = mvp_matrix * a_position;
+uniform mat4 m_matrix;
+uniform mat4 v_matrix;
+uniform mat4 proj_matrix;
+
+void main(void) {
+        //M->V->P
+    gl_Position = proj_matrix * v_matrix * m_matrix * vec4(position, 1.0);
 }
-

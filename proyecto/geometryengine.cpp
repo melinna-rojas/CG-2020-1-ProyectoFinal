@@ -3,13 +3,6 @@
 #include <QVector2D>
 #include <QVector3D>
 
-struct VertexData
-{
-    QVector3D position;
-    QVector2D texCoord;
-};
-
-//! [0]
 GeometryEngine::GeometryEngine()
     : indexBuf(QOpenGLBuffer::IndexBuffer)
 {
@@ -31,17 +24,8 @@ GeometryEngine::~GeometryEngine()
 
 void GeometryEngine::initCubeGeometry()
 {
-    /*float vertices[24] = {
-        -0.5f, -0.5f, -0.5f, // front bottom left  0
-         0.5f, -0.5f, -0.5f, // front bottom right 1
-         0.5f,  0.5f, -0.5f, // front top right    2
-        -0.5f,  0.5f, -0.5f, // front top left     3
-        -0.5f, -0.5f, 0.5f, // back bottom left   4
-         0.5f, -0.5f, 0.5f, // back bottom right  5
-         0.5f,  0.5f, 0.5f, // back top right     6
-        -0.5f,  0.5f, 0.5f  // back top left      7
-    };*/
-
+    //Definiendo los vertices del cubo
+    //Lo ideal sería crearlos con una función
     float vertices[108] = {
             //side 01
          -1.0f,  1.0f, -1.0f, -1.0f, -1.0f, -1.0f,  1.0f, -1.0f, -1.0f, //Triangle 01
@@ -64,30 +48,10 @@ void GeometryEngine::initCubeGeometry()
         };
 
 
-    /*GLushort indices[] = {
-        0, 1, 2, // front face
-        2, 3, 1,
-        4, 5, 6,
-        6, 7, 4,
-        7, 3, 0,
-        0, 4, 7,
-        6, 2, 1,
-        1, 5, 6,
-        0, 1, 5,
-        5, 4, 0,
-        3, 2, 6,
-        6, 7, 3
-    };*/
-
-
     // Transfer vertex data to VBO 0
     arrayBuf.bind();
-    arrayBuf.allocate(vertices, 24 * sizeof(vertices));
-
-    // Transfer index data to VBO 1
-    //indexBuf.bind();
-    //indexBuf.allocate(indices, 36 * sizeof(GLushort));
-
+    //Transfiero el arreglo al VBO
+    arrayBuf.allocate(vertices, 108 * sizeof(vertices));
 }
 
 
