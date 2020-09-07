@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   // Widget *widget = new Widget();
-   // ui->openGL_Window->addWidget(widget);
+   //Widget *widget = new Widget();
+   //ui->openGL_Window->addWidget(widget);
 }
 
 MainWindow::~MainWindow()
@@ -19,9 +19,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_rbtn_cube_clicked()
 {
-     Widget *widget = new Widget();
+     //Widget *widget = new Widget();
      //Se supone que esta función limpia antes
      //qDeleteAll(this->ui->openGL_Window->findChildren<QOpenGLWidget *>(QString(), Qt::FindDirectChildrenOnly));
 
-     this->ui->openGL_Window->addWidget(widget);
+     //this->ui->openGL_Window->addWidget(widget);
 }
