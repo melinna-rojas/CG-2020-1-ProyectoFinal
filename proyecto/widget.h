@@ -8,7 +8,7 @@
 #include <QOpenGLBuffer>
 #include <QOpenGLShaderProgram>
 #include <QOpenGLFunctions>
-
+#include <QMainWindow>
 
 //class GeometryEngine;
 
@@ -16,7 +16,7 @@
 class Widget :  public QOpenGLWidget {
 
 public :
-    Widget();
+    Widget(QMainWindow *parent=0);
     ~Widget();
 
 protected:
