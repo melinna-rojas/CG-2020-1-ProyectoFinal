@@ -84,7 +84,7 @@
      <rect>
       <x>670</x>
       <y>70</y>
-      <width>70</width>
+      <width>91</width>
       <height>17</height>
      </rect>
     </property>
@@ -279,7 +279,7 @@
      <string>Camera</string>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider">
+   <widget class="QSlider" name="scroll_rotateX">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -292,7 +292,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_2">
+   <widget class="QSlider" name="scroll_rotateY">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -305,7 +305,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_3">
+   <widget class="QSlider" name="scroll_rotateZ">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -318,7 +318,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_4">
+   <widget class="QSlider" name="scroll_scale">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -331,7 +331,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSlider" name="SegmentsX">
+   <widget class="QSlider" name="scroll_segmentsX">
     <property name="geometry">
      <rect>
       <x>670</x>
@@ -344,7 +344,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QSlider" name="SegmentsY">
+   <widget class="QSlider" name="scroll_segmentsY">
     <property name="geometry">
      <rect>
       <x>670</x>
