@@ -1,8 +1,11 @@
 #include "widget.h"
 //#include <QOpenGLFunctions>
 #include <iostream>
+
 using namespace std;
-Widget::Widget()
+
+Widget::Widget(QMainWindow *parent)
+   : QOpenGLWidget(parent)
 {
    // initializeGL();
     //paintGL();
