@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   //Widget *widget = new Widget();
-   //ui->openGL_Window->addWidget(widget);
+    Widget *widget = new Widget();
+    ui->openGL_Window->addWidget(widget);
 }
 
 MainWindow::~MainWindow()
